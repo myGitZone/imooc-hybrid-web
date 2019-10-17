@@ -1,1 +1,27 @@
+@import "../../assets/css/dimens.less";
+.container{
+  :global{
+    .swiper-pagination{
+      .px2rem(bottom, 12);
+      line-height: 0;
+      .custom-bullet-class{
+        box-sizing: border-box;
+        border-radius: 100%;
+        .px2rem(height, 6);
+        .px2rem(width, 6);
+        .px2rem(border, 1);
+        border-style: solid;
+        border-color: #fff;
+        margin: 0;
+        .px2rem(margin-left, 4);
+        .px2rem(margin-right, 4);
+        display: inline-block;
+        opacity: 1;
+      }
+      .swiper-pagination-bullet-active {
+        background: white;
+      }
+    }
+  }
+}
 
