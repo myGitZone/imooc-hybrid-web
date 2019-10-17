@@ -1,32 +1,32 @@
 import React from 'react';
 import _Swiper from 'swiper';
 import 'swiper/css/swiper.css';
+import styles from './index.less';
 
 class Swiper extends React.PureComponent {
   componentDidMount() {
+    console.log(styles);
     var swiper = new _Swiper('.swiper-container', {
+      autoplay: true,
+      autoHeight: true,
       pagination: {
         el: '.swiper-pagination',
+        type: 'bullets',
+        bulletClass: 'custom-bullet-class'
       },
     });
   }
 
   render() {
+    const { showPagination, children } = this.props;
     return (
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">Slide 1</div>
-          <div class="swiper-slide">Slide 2</div>
-          <div class="swiper-slide">Slide 3</div>
-          <div class="swiper-slide">Slide 4</div>
-          <div class="swiper-slide">Slide 5</div>
-          <div class="swiper-slide">Slide 6</div>
-          <div class="swiper-slide">Slide 7</div>
-          <div class="swiper-slide">Slide 8</div>
-          <div class="swiper-slide">Slide 9</div>
-          <div class="swiper-slide">Slide 10</div>
+      <div className={`${styles.container} swiper-container`}>
+        <div className="swiper-wrapper">
+          {children}
         </div>
-        <div class="swiper-pagination"></div>
+        {
+          showPagination ? <div className="swiper-pagination"/> : null
+        }
       </div>
     );
   }

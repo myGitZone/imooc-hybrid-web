@@ -1,11 +1,11 @@
 import React from 'react';
 
-class Slide extends React.PureComponent {
-  render() {
-    return (
-      <div>Slide</div>
-    );
-  }
-}
+const Slide = ({ children }) => {
+  return (
+    <div className="swiper-slide">
+      {children}
+    </div>
+  );
+};
 
 export default Slide;
