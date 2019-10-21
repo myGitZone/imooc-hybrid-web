@@ -1,7 +1,7 @@
 import React from 'react';
 import _Swiper from 'swiper';
 import 'swiper/css/swiper.css';
-import styles from './index.less';
+import styles from './index.scss';
 
 class Swiper extends React.PureComponent {
   componentDidMount() {

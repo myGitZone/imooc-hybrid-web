@@ -20,7 +20,7 @@ export default {
       if (
         context.resourcePath.includes('node_modules') ||
         context.resourcePath.includes('ant.design.pro.less') ||
-        context.resourcePath.includes('global.less')
+        context.resourcePath.includes('global.scss')
       ) {
         return localName;
       }
@@ -28,7 +28,7 @@ export default {
       const match = context.resourcePath.match(/src(.*)/);
 
       if (match && match[1]) {
-        const antdProPath = match[1].replace('.less', '');
+        const antdProPath = match[1].replace('.scss', '');
         const arr = slash(antdProPath)
           .split('/')
           .map((a) => a.replace(/([A-Z])/g, '-$1'))

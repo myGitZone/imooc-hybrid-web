@@ -1,0 +1,24 @@
+@import "../../assets/css/dimens.scss";
+
+.mode-options {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  padding-bottom: px2rem(14);
+
+  &-item {
+    width: 20%;
+    text-align: center;
+    margin-top: px2rem(10);
+
+    &-icon {
+      width: px2rem(40);
+      height: px2rem(40);
+    }
+
+    &-title {
+      font-size: $minInfoSize;
+      margin-top: px2rem(6);
+    }
+  }
+}

@@ -1,0 +1,13 @@
+// 定义预计根元素fontSize -》 iphpne 6，7，8
+// 设计稿以375为例
+$rootFontSize: 375 / 10;
+// 定义函数 像素转换成rem
+@function px2rem($px) {
+  @return $px / $rootFontSize + rem;
+}
+$infoSize: px2rem(14);
+$titleSize: px2rem(16);
+$minInfoSize: px2rem(12);
+$marginSize: px2rem(8);
+$navBarHeight: px2rem(44);
+$radiusSize: px2rem(6);

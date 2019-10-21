@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@/pages/Home/index.less';
+import styles from '@/pages/Home/index.scss';
 
 class My extends React.PureComponent {
   render() {

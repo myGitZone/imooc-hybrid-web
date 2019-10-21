@@ -1,0 +1,57 @@
+@import "../../assets/css/dimens.scss";
+@import "../../assets/css/colors.scss";
+@import "../../assets/css/style.scss";
+
+.goods {
+  background-color: $bgColor;
+  &-item{
+    background-color: white;
+    padding: $marginSize;
+    box-sizing: border-box;
+
+    &-desc{
+      width: 100%;
+
+      &-name{
+        font-size: $infoSize;
+        line-height: px2rem(18);
+        &-hint {
+          color: $hintColor;
+        }
+      }
+
+      &-data{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: $marginSize;
+        &-price{
+          font-size: $titleSize;
+          color: $mainColor;
+          font-width: 500;
+        }
+        &-volume{
+          font-size: $infoSize;
+          color: $hintColor;
+        }
+      }
+    }
+  }
+}
+
+
+.goods-waterfall{
+  position: relative;
+  margin: $marginSize;
+  &-item{
+    position: absolute;
+    width: 49%;
+    border-radius: $radiusSize;
+
+    .goods-item-img{
+      width: 100%;
+
+    }
+  }
+}

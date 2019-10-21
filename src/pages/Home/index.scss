@@ -1,0 +1,37 @@
+@import '../../assets/css/colors.scss';
+@import '../../assets/css/dimens.scss';
+
+.home {
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+
+  .home-content {
+    height: 100%;
+  }
+
+  .slider-img {
+    width: 100%;
+  }
+
+  .activity-520 {
+    background-color: #F5F5F5;
+    margin-top: px2rem(-8);
+    border-top-left-radius: px2rem(8);
+    border-top-right-radius: px2rem(8);
+
+    img {
+      display: inline-block;
+      width: 33.33%;
+    }
+  }
+
+  .activity-pin-gou-jie {
+    background-color: white;
+    margin-top: $marginSize;
+
+    img {
+      width: 100%;
+    }
+  }
+}

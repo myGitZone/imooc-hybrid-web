@@ -1,4 +1,4 @@
-import styles from './index.less';
+import styles from './index.scss';
 
 function BasicLayout(props) {
   return (

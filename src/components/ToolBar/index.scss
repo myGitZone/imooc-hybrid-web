@@ -1,0 +1,33 @@
+@import "../../assets/css/dimens.scss";
+@import "../../assets/css/colors.scss";
+
+.tool-bar {
+  display: flex;
+  height: px2rem(46);
+  justify-content: space-around;
+  background-color: white;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, .2);
+  border-top: 1px solid $lineColor;
+
+  &-item {
+    text-align: center;
+    padding: px2rem(4) 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-img {
+      width: px2rem(22);
+      height: px2rem(22);
+    }
+
+    &-name {
+      font-size: $minInfoSize;
+      margin-top: px2rem(4);
+    }
+    &-name-h{
+      color: $mainColor;
+    }
+  }
+}

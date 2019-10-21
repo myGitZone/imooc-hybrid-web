@@ -1,0 +1,41 @@
+@import "../../assets/css/dimens.scss";
+@import "../../assets/css/colors.scss";
+
+.seconds{
+  background-color: white;
+  border-radius: $radiusSize;
+  margin: $marginSize;
+  &-wrap{
+    display: flex;
+    padding: $marginSize;
+    &-title{
+      font-size: $titleSize;
+      display: inline-block;
+    }
+  }
+  &-content{
+    padding: $marginSize 0;
+    display: flex;
+    overflow: hidden;
+    overflow-x: scroll;
+    &-item{
+      padding: 0 px2rem(12);
+      text-align: center;
+      &-icon{
+        width: px2rem(66);
+        height: px2rem(66);
+      }
+      &-price{
+        color: $mainColor;
+        margin-top: px2rem(4);
+        font-size: $titleSize;
+      }
+      &-old-price{
+        color: $hintColor;
+        font-size: $infoSize;
+        margin-top: $marginSize;
+        text-decoration: line-through;
+      }
+    }
+  }
+}

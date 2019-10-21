@@ -15,7 +15,7 @@
  */
 
 import React, { useState } from 'react';
-import styles from './index.less';
+import styles from './index.scss';
 
 function getClassName(selected) {
   return selected ? `${styles['tool-bar-item-name']} ${styles['tool-bar-item-name-h']}` : styles['tool-bar-item-name']
