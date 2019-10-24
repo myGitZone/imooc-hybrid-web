@@ -1,0 +1,20 @@
+@import "../../assets/css/dimens";
+@import "../../assets/css/colors";
+
+.search {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  margin: px2rem(6);
+  border-radius: px2rem(22);
+  &-icon{
+    margin-left: $marginSize;
+    width: px2rem(16);
+  }
+  &-hint{
+    margin-left: $marginSize;
+    font-size: $minInfoSize;
+    color: $hintColor;
+  }
+}

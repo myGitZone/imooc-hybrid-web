@@ -1,0 +1,33 @@
+@import "../../assets/css/dimens.scss";
+@import "../../assets/css/colors";
+
+
+.nav-bar{
+  width: 100%;
+  height: px2rem(44);
+  line-height: px2rem(44);
+  display: flex;
+  justify-content: space-between;
+  .left, .right{
+    display: flex;
+    height: 100%;
+    width: px2rem(26);
+    padding: 0 px2rem(8);
+    img{
+      width: 100%;
+      align-self: center;
+    }
+  }
+  .center{
+    display: flex;
+    height: 100%;
+    flex-grow: 1;
+    .page-title{
+      font-size: $titleSize;
+      align-self: center;
+    }
+  }
+  .bottom-line{
+    border-bottom: 1px solid $lineColor;
+  }
+}
