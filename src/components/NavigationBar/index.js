@@ -12,12 +12,12 @@ import style from '../../assets/css/style.scss';
 class NavigationBar extends React.PureComponent {
   render() {
     const {
-      pageName, isShowBack = true, navLeft, navCenter, navRight, navBarStyle = {backgroundColor: 'white'}
+      pageName, isShowBack = true, navLeft, navCenter, navRight, navBarStyle = {backgroundColor: 'white'}, onBack
     } = this.props;
     return (
       <div className={`${styles['nav-bar']} ${style['z-index-max']} ${pageName ? styles['bottom-line'] : ''}`} style={navBarStyle}>
         {/*左*/}
-        <div className={styles.left}>
+        <div className={styles.left} onClick={onBack}>
           {
             isShowBack ? <img src={backImg} alt=""/> : null
           }

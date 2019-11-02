@@ -37,35 +37,99 @@ function initImgStyles(dataSource) {
  *
  */
 class Goods extends React.PureComponent {
-  static getDerivedStateFromProps(newProps, preState) {
-    if (newProps.dataSource !== preState.dataSource) {
-      const imgStyles = initImgStyles(newProps.dataSource);
-      return {
-        imgStyles,
-        dataSource: newProps.dataSource,
-      };
-    }
-    return {};
-  }
-
   state = {
     // 图片样式集合
     imgStyles: [],
-    dataSource: null,
     // item样式集合
     goodsItemStyles: [],
     // goods组件高度
-    goodsViewHeight: 0,
+    goodsViewHeight: '100%',
+    // 不同形式下的类名
+    layoutClass: styles['goods-list'],
+    // 商品类名
+    layoutItemClass: styles['goods-list-item'],
   };
 
   els = [];
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    setTimeout(() => {
-      this.initWaterfall();
-    }, 20);
+  componentDidMount() {
+    this.initLayout();
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const { layoutType, dataSource } = this.props;
+    if (layoutType !== prevProps.layoutType || dataSource !== prevProps.dataSource) {
+      this.initLayout();
+    }
+  }
+
+  initLayout() {
+    const { layoutType, dataSource } = this.props;
+    // 初始化影响布局的数据
+    switch (layoutType) {
+      case '1':
+        this.setState({
+          // 图片样式集合
+          imgStyles: [],
+          // item样式集合
+          goodsItemStyles: [],
+          // goods组件高度
+          goodsViewHeight: '100%',
+          // 不同形式下的类名
+          layoutClass: styles['goods-list'],
+          // 商品类名
+          layoutItemClass: styles['goods-list-item'],
+        });
+        break;
+      case '2':
+        this.setState({
+          // 图片样式集合
+          imgStyles: [],
+          // item样式集合
+          goodsItemStyles: [],
+          // goods组件高度
+          goodsViewHeight: '100%',
+          // 不同形式下的类名
+          layoutClass: styles['goods-grid'],
+          // 商品类名
+          layoutItemClass: styles['goods-grid-item'],
+        });
+        break;
+      case '3':
+        this.setState({
+          // 图片样式集合
+          imgStyles: initImgStyles(dataSource),
+          // item样式集合
+          goodsItemStyles: [],
+          // goods组件高度
+          goodsViewHeight: '0',
+          // 不同形式下的类名
+          layoutClass: styles['goods-waterfall'],
+          // 商品类名
+          layoutItemClass: styles['goods-waterfall-item'],
+        }, () => {
+          this.initWaterfall();
+        });
+
+        break;
+      default:
+        this.setState({
+          // 图片样式集合
+          imgStyles: [],
+          // item样式集合
+          goodsItemStyles: [],
+          // goods组件高度
+          goodsViewHeight: '100%',
+          // 不同形式下的类名
+          layoutClass: styles['goods-list'],
+          // 商品类名
+          layoutItemClass: styles['goods-list-item'],
+        });
+        break;
+    }
+
+
+  }
 
   /**
    * 瀑布流布局
@@ -102,9 +166,12 @@ class Goods extends React.PureComponent {
       }
       goodsItemStyles.push(goodsItemStyle);
     });
+    // isScroll true 单独滚动
+    const {isScroll=true} = this.props;
+
     this.setState({
       goodsItemStyles,
-      goodsViewHeight: (leftHeightTotal > rightHeightTotal ? leftHeightTotal : rightHeightTotal) + 'px',
+      goodsViewHeight: isScroll ? '100%' : (leftHeightTotal > rightHeightTotal ? leftHeightTotal : rightHeightTotal) + 'px'
     });
   };
 
@@ -114,17 +181,19 @@ class Goods extends React.PureComponent {
 
   render() {
     const { dataSource } = this.props;
-    const { imgStyles, goodsViewHeight, goodsItemStyles } = this.state;
+    // layoutType 1、垂直布局  2、网格布局   3、瀑布流布局
+    const { imgStyles, goodsViewHeight, goodsItemStyles, layoutClass, layoutItemClass } = this.state;
     return (
-      <div className={`${styles.goods} ${styles['goods-waterfall']}`} style={{ height: goodsViewHeight }}>
+      <div className={`${styles.goods} ${layoutClass}`} style={{ height: goodsViewHeight }}>
         {
           dataSource.map((item, index) => {
             return (
-              <div className={`${styles['goods-item']} ${styles['goods-waterfall-item']}`} key={item.img}
+              <div className={`${styles['goods-item']} ${layoutItemClass}`} key={item.img}
                    ref={(el) => this.initEls(el, index)} style={goodsItemStyles[index]}>
                 <img className={styles['goods-item-img']} src={item.img} alt="" style={imgStyles[index]}/>
                 <div className={styles['goods-item-desc']}>
-                  <p className={`${styles['goods-item-desc-name']} ${style['text-line-2']} ${item.isHave ? styles['goods-item-desc-name-hint'] : ''}`}>
+                  <p
+                    className={`${styles['goods-item-desc-name']} ${style['text-line-2']} ${item.isHave ? styles['goods-item-desc-name-hint'] : ''}`}>
                     {
                       item.isDirect ? <Direct/> : null
                     }

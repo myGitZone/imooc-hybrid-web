@@ -4,6 +4,8 @@
 
 .goods {
   background-color: $bgColor;
+  overflow: hidden;
+  overflow-y: auto;
   &-item{
     background-color: white;
     padding: $marginSize;
@@ -40,7 +42,7 @@
   }
 }
 
-
+// 瀑布流
 .goods-waterfall{
   position: relative;
   margin: $marginSize;
@@ -52,6 +54,40 @@
     .goods-item-img{
       width: 100%;
 
+    }
+  }
+}
+
+// 垂直
+.goods-list{
+  &-item {
+    display: flex;
+    border-bottom: 1px solid $lineColor;
+    .goods-item-img{
+      width: px2rem(120);
+      height: px2rem(120);
+    }
+    .goods-item-desc{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: $marginSize;
+    }
+  }
+}
+
+// 网格布局
+.goods-grid{
+  padding: $marginSize;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  &-item{
+    width: 49%;
+    border-radius: $radiusSize;
+    margin-bottom: $marginSize;
+    .goods-item-img{
+      width: 100%;
     }
   }
 }

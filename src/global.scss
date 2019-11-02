@@ -3,6 +3,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import "./assets/css/dimens";
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -86,4 +87,33 @@ html, body {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+}
+
+// 内容展开时
+.fold-height-enter-active {
+  animation-name: fold-height-open;
+  animation-duration: .3s;
+}
+@keyframes fold-height-open {
+  0%{
+    max-height: 0;
+  }
+  100%{
+    max-height: px2rem(180);
+  }
+}
+
+// 离开内容展示
+.fold-height-exit-active{
+  animation-duration: .3s;
+  animation-name: fold-height-close;
+}
+
+@keyframes fold-height-close {
+  0%{
+    max-height: px2rem(180);
+  }
+  100%{
+    max-height: 0;
+  }
 }

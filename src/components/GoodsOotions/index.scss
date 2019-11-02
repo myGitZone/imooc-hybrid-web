@@ -1,0 +1,80 @@
+@import "../../assets/css/dimens";
+@import "../../assets/css/colors";
+
+.goods-options{
+  border-bottom: 1px solid $lineColor;
+  &-list{
+    display: flex;
+    width: 100%;
+    height: px2rem(46);
+    background-color: white;
+    &-item{
+      flex-grow: 1;
+      &-content{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        &-name{
+          font-size: $infoSize;
+          margin-right: $marginSize;
+        }
+        &-name-active{
+          color: $mainColor;
+        }
+        // 子选项展开时动画
+        &-caret{
+          &-open{
+            transform: rotate(-180deg);
+            transition: all .3s;
+          }
+          &-close{
+            transform: rotate(0deg);
+            transition: all .3s;
+          }
+        }
+      }
+    }
+  }
+  .options-sub-content{
+    position: absolute;
+    width: 100%;
+    max-height: px2rem(180);
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: white;
+    &-list{
+      &-item{
+        background-color: white;
+        &-content{
+          display: flex;
+          align-items: center;
+          border-top: 1px solid $lineColor;
+          padding: $marginSize;
+          height: px2rem(44);
+          box-sizing: border-box;
+          &-name{
+            font-size: $infoSize;
+            display: inline-block;
+            flex: 1;
+          }
+          &-name-active {
+            color: $mainColor;
+          }
+          &-select{
+            width: px2rem(18);
+            height: px2rem(18);
+          }
+        }
+      }
+    }
+  }
+}
+
+.cover{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0,0,0,.4);
+}

@@ -1,3 +1,6 @@
+@import "./dimens";
+@import "./colors";
+
 // 文本两行展示
 .text-line-2 {
   overflow: hidden;
@@ -11,4 +14,18 @@
 
 .z-index-max {
   z-index: 9999;
+}
+
+.z-index-2{
+  z-index: 2;
+}
+
+// 三角形样式
+.caret{
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: px2rem(8) solid $mainColor;
+  border-left: px2rem(8) solid transparent;
+  border-right: px2rem(8) solid transparent;
 }

@@ -39,6 +39,26 @@ export default {
       return localName;
     },
   },
+  routes: [
+    {
+      path: '/',
+      component: '../layouts',
+      routes: [
+        {
+          path: '/',
+          redirect: '/main'
+        },
+        {
+          path: '/main',
+          component: '../pages',
+        },
+        {
+          path: '/goodslist',
+          component: '../pages/GoodsList',
+        }
+      ]
+    }
+  ],
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     ['umi-plugin-react', {

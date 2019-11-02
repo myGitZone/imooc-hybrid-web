@@ -1,4 +1,5 @@
 import React from 'react';
+import router from 'umi/router';
 import styles from './index.scss';
 
 const DATASOURCE = [
@@ -46,6 +47,9 @@ const DATASOURCE = [
 ]
 
 class ModeOptions extends React.PureComponent {
+  handleItemClick = (item) => {
+    router.push('./goodslist');
+  }
   render() {
     return (
       <div className={styles['mode-options']}>
@@ -53,7 +57,7 @@ class ModeOptions extends React.PureComponent {
           {
             DATASOURCE.map((item)=>{
              return (
-               <div className={styles['mode-options-item']} key={item.id}>
+               <div className={styles['mode-options-item']} key={item.id} onClick={()=>this.handleItemClick(item)}>
                  <img className={styles['mode-options-item-icon']} src={item.icon} alt=""/>
                  <p className={styles['mode-options-item-title']}>{item.title}</p>
                </div>

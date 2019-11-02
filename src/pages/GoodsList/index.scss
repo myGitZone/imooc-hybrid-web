@@ -1,0 +1,14 @@
+@import "../../assets/css/dimens";
+@import "../../assets/css/colors";
+
+.goods-list-page{
+  height: 100%;
+  background-color: $bgColor;
+  display: flex;
+  flex-direction: column;
+  &-content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}

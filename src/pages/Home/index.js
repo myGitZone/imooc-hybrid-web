@@ -88,23 +88,23 @@ class Home extends React.PureComponent {
   handleScrollChange = (e) => {
     const scrollTopValue = e.target.scrollTop;
     const opacity = Math.min(scrollTopValue / ANCHOR_SCROLL_TOP, 1);
-    this.setState((preSate)=>{
+    this.setState((preSate) => {
       return {
         naBarStyle: {
           ...preSate.naBarStyle,
           backgroundColor: `rgba(255, 255, 255, ${opacity})`,
         },
         scrollTopValue: scrollTopValue,
-        navBarCurrentSoltStyle: opacity >= 0.7 ? navBarSoltStyle.hightlight : navBarSoltStyle.normal
-      }
-    })
-  }
+        navBarCurrentSoltStyle: opacity >= 0.7 ? navBarSoltStyle.hightlight : navBarSoltStyle.normal,
+      };
+    });
+  };
 
   render() {
     const {
       swiperData, activityData, secondsData, goodsData,
     } = this.props;
-    const {navBarCurrentSoltStyle, naBarStyle} = this.state;
+    const { navBarCurrentSoltStyle, naBarStyle } = this.state;
     return (
       <div className={styles.home} onScroll={this.handleScrollChange}>
         <NavigationBar
@@ -148,7 +148,10 @@ class Home extends React.PureComponent {
               <img src={pingoujie} alt=""/>
             </div>
           </Activity>
-          <Goods dataSource={goodsData}/>
+          {
+            goodsData.length > 0 ? <Goods layoutType="3" isScroll={false} dataSource={goodsData}/> : null
+          }
+
         </div>
       </div>
     );
